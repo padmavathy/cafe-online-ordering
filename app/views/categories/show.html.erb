@@ -1,0 +1,10 @@
+<header class="break">
+<h2><%= @category.name %></h2>
+</header>
+
+
+<% @category.items.each do |item| %>
+    <p><%= link_to item.name, category_item_path(@category, item) %></p>
+<% end %>
+
+<%= render partial: 'links', locals: {category: @category} %> 

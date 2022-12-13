@@ -1,0 +1,10 @@
+<header class="break">
+<h2><%= @menu.name %></h2>
+</header>
+
+
+<% @menu.items.each do |item| %>
+    <p><%= link_to item.name, menu_item_path(@menu, item) %></p>
+<% end %>
+
+<%= render partial: 'links', locals: {menu: @menu} %>

@@ -1,0 +1,12 @@
+<header class="break">
+<h2>Welcome to our Menu</h2>
+</header>
+
+
+
+<% @menus.each do |menu| %>
+    <p><%= link_to menu.name, menu_path(menu) %></p>
+<% end %>
+
+
+<p><%= button_to "Add New Menu", new_menu_path, method: :get %></p>

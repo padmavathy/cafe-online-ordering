@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Padma's Cafe</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  
+  <body>
+    <div class="wrapper">
+    <%= render 'layouts/nav'%>
+
+    <% flash.each do |name, msg| %>
+      <div id="notice">
+        <%= msg %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+    
+  </div> 
+  </body>
+</html>

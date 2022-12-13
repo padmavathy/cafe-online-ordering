@@ -1,0 +1,23 @@
+<header class="break">
+<h2><%= current_user.name %>'s Cart</h2>
+</header>
+<p><%= button_to "Back to Menu", items_path, method: :get %></p>
+<ol>
+    <% @cart.line_items.each do |line_item| %>
+    <li>Item: <%= line_item.item.name %></li>
+    Price: <%= number_to_currency(line_item.item.price) %><br>
+    Quantity: <%= line_item.quantity %><br>
+    Total Price: <%= number_to_currency(line_item.total_price) %><br>
+
+    <%= button_to "Add one", line_item_add_path(:id => line_item), method: :post %>
+    <%= button_to "Reduce one", line_item_reduce_path(:id => line_item), method: :post %>
+    <%= button_to "Remove item", line_item_path(line_item), method: :delete %>
+    <br>
+    <% end %>
+</ol>
+<h3>Sub total: $<%= @cart.sub_total %></h3>
+
+
+<%= button_to "Proceed to checkout", new_order_path, method: :get %><br>
+
+<%= button_to "Empty cart", cart_path(@current_cart), method: :delete, data: {confirm: "Are you sure?"} %>

@@ -1,0 +1,4 @@
+<p><%= button_to "View All Items", category_items_path(category), method: :get %></p>
+<p><%= button_to "Add New Items", new_category_item_path(category), method: :get %></p>
+<p><%= button_to "Edit Category Name", edit_category_path(category), method: :get %></p>
+<p><%= button_to "Delete Category Name", category_path(category), method: :delete %></p>

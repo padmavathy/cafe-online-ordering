@@ -1,0 +1,10 @@
+<header class="break">
+<h2>Welcome, <%= current_user.name %></h2>
+</header>
+
+
+<h4>My Orders</h4>
+
+<% current_user.orders. each do |order| %>
+    <p><%= link_to created_at(order), order_path(order) %></p>
+<% end %>

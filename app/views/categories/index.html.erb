@@ -1,0 +1,12 @@
+<header class="break">
+<h2>What are you in the mood for?</h2>
+</header>
+
+    <% @categories.each do |category| %>
+        <p><%= link_to category.name, category_path(category) %></p>
+    <% end %>
+
+<p><%= button_to "Add New Category", new_category_path, method: :get %></p>
+
+
+

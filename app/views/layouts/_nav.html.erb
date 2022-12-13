@@ -1,0 +1,11 @@
+
+    <ul id="fixedbar">
+        <li id="nav"><%= link_to "Home", root_path %></li>
+    <% if !user_signed_in? %>
+        <li id="nav"><%= link_to "Register", signup_path %></li>
+        <li id="nav"><%= link_to "Login", login_path %></li>
+    <% else %>
+        <li id="nav"><%= link_to current_user.name, users_show_path(current_user) %></li>
+        <li id="nav"><%= link_to "Logout", destroy_user_session_path, method: "delete" %></li>
+    <% end %>
+    </ul>

@@ -1,0 +1,19 @@
+<header class="break">
+<h2><%= @item.menu.name %></h2>
+</header>
+<%= button_to "Back to Menu", items_path, method: :get %>
+<h3><%= @item.category.name %></h3>
+<h4>Item Name: <%= @item.name %></h4>
+<h4>Price: $<%= @item.price %></h4>
+<p><%= @item.description %></p>
+
+
+
+<% if user_signed_in?%>
+    <%= button_to "Add to Cart", line_items_path(:item_id => @item.id) %>
+    <% if current_user.admin %>
+        <h5>----- Admin -----</h5>
+        <%= render partial: 'links', locals: {item: @item} %>
+        <h5>----- Only ------</h5>
+    <% end %>
+<% end %>
