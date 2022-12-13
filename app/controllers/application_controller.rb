@@ -16,7 +16,7 @@ private
             if cart.present?
                 @current_cart = cart
             else
-            session[:cart_id] = nil
+                session[:cart_id] = nil
             end
         end
 

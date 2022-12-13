@@ -32,6 +32,8 @@ class LineItemsController < ApplicationController
     def reduce_quantity
         if @line_item.quantity > 1
             @line_item.quantity -= 1
+        elsif @line_item.quantity == 1
+            @line_item.destroy
         end
         @line_item.save
         redirect_to cart_path(@current_cart)

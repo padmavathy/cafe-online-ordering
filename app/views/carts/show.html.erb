@@ -17,7 +17,8 @@
 </ol>
 <h3>Sub total: $<%= @cart.sub_total %></h3>
 
-
-<%= button_to "Proceed to checkout", new_order_path, method: :get %><br>
-
+<% if @cart.line_items.count > 0 %>
+<%= button_to "Proceed to checkout", new_order_path, method: :get %>
+<% end %>
+<br>
 <%= button_to "Empty cart", cart_path(@current_cart), method: :delete, data: {confirm: "Are you sure?"} %>
