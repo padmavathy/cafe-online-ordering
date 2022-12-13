@@ -20,9 +20,10 @@ Rails.application.routes.draw do
   
   get 'users/show'
   get '/users/:id', to: 'users#show'
-  devise_for :users, :controllers => {registrations: 'registrations', omniauth_callbacks: 'callbacks'}
+  devise_for :users, :controllers => { registrations: 'registrations' }
   devise_scope :user do
     get '/login', to: 'devise/sessions#new'
+    get '/sign_out' => 'devise/sessions#destroy'
     get '/signup', to: 'devise/registrations#new'
   end
   
